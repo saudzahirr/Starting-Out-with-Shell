@@ -72,5 +72,5 @@ chmod +x test.sh
 ```
 After that run your script using the command given below:
 ```shell
-./your_script.sh
+./test.sh
 ```
