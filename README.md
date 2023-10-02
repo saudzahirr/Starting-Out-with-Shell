@@ -60,10 +60,12 @@ while [ $count -le 5 ]; do
 done
 ```
 ### Functions
-function func() {
+```shell
+function message() {
     echo "Have a great day!"
 }
-func
+message
+```
 
 ## Execution
 Before running your file make it executable by running the following command:
