@@ -4,13 +4,15 @@ echo "================================"
 echo "Ruff code lint fixing ..."
 echo "================================"
 
-files=("$@")
+read -p "Enter file paths (default: all .py): " files
+files=("$files")
 
 if [ ${#files[@]} -eq 0 ]; then
-    ruff version && ruff --fix . && ruff format .
+    ruff version && ruff check --fix . && ruff format .
 else
-    echo "Ruff check: ${files[@]}"
-    for file in ${files[@]}; do
-    ruff version && ruff --fix $file && ruff format $file
+    echo "Checking ${files[@]} ..."
+    for file in ${files[@]};
+    do
+        ruff version && ruff check --fix $file && ruff format $file
     done
 fi
