@@ -1,5 +1,9 @@
 #!/bin/bash
 
+echo "================================"
+echo "Ruff code lint fixing ..."
+echo "================================"
+
 files=("$@")
 
 if [ ${#files[@]} -eq 0 ]; then
