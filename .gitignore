@@ -1,1 +1,14 @@
 *_cache
+
+*.py
+*.h
+*.c
+*.hpp
+*.cpp
+*.txt
+*.log
+
+build/
+bin/
+lib/
+.vscode/

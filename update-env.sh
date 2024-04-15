@@ -1,6 +1,7 @@
 #!/bin/bash
 
-envs=("$@")
+read -p "Enter environment names: " envs
+envs=("$envs")
 
 echo "Updating Conda Environments ..."
 for env in "${envs[@]}"; do
