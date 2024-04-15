@@ -1,6 +1,8 @@
 #!/bin/bash
 
-PROJECT_NAME=$(grep -m1 "project(" CMakeLists.txt | sed 's/project(//; s/)//')
+PROJECT_NAME=$(grep -m1 "project(" CMakeLists.txt | sed 's/project(//' | sed 's/)//' | cut -d ' ' -f 1)
+EXECUTABLE=$(grep -m1 "add_executable(" CMakeLists.txt | sed 's/add_executable(//' | cut -d ' ' -f 1)
+
 echo "Building $PROJECT_NAME ..."
 
 rm -rf build
@@ -9,4 +11,8 @@ cd build
 cmake ..
 make
 
-./$PROJECT_NAME
+if [[ $EXECUTABLE == "\${PROJECT_NAME}" ]]; then
+  ./$PROJECT_NAME
+else
+  ./$EXECUTABLE
+fi
